@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ ! -d docs ]; then
+  echo "ERROR: unable to locate docs source folder."
+fi
+
+if [ -d .venv ]; then
+  source .venv/bin/activate
+fi
+
+while true; do
+  mkdocs serve
+done
