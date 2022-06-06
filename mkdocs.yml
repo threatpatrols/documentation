@@ -85,7 +85,7 @@ extra:
 
   analytics:
     provider: google
-    property: ${{ env.GOOGLE_ANALYTICS_KEY }}
+    property: !ENV GOOGLE_ANALYTICS_KEY
 
   social:
     - icon: octicons/browser-16
