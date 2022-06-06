@@ -9,7 +9,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: github-pages-build
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -17,6 +16,4 @@ jobs:
           python-version: 3.x
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
-      - run: echo "GOOGLE_ANALYTICS_KEY_1 $GOOGLE_ANALYTICS_KEY"
-      - run: echo "GOOGLE_ANALYTICS_KEY_2 ${GOOGLE_ANALYTICS_KEY}"
-      - run: echo "GOOGLE_ANALYTICS_KEY_3 ${{ env.GOOGLE_ANALYTICS_KEY }}"
+      - run: echo "GOOGLE_ANALYTICS_KEY_4 ${{ secrets.GOOGLE_ANALYTICS_KEY }}"
