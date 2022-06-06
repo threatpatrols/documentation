@@ -85,7 +85,7 @@ extra:
 
   analytics:
     provider: google
-    property: G-3TGV9M8YHL
+    property: !ENV GOOGLE_ANALYTICS_KEY
 
   social:
     - icon: octicons/browser-16
