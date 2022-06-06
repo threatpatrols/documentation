@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://documentation.threatpatrols.com/</loc>
+         <lastmod>2022-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://documentation.threatpatrols.com/multicloudsense/</loc>
+         <lastmod>2022-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://documentation.threatpatrols.com/opnsense-plugins/</loc>
+         <lastmod>2022-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://documentation.threatpatrols.com/threat-canary/</loc>
+         <lastmod>2022-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://documentation.threatpatrols.com/threat-watch/</loc>
+         <lastmod>2022-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
