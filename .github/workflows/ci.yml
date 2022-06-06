@@ -17,4 +17,5 @@ jobs:
           python-version: 3.x
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
-      - run: echo "GOOGLE_ANALYTICS_KEY_4 ${{ secrets.GOOGLE_ANALYTICS_KEY }}"
+        env:
+          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
