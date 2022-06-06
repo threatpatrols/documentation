@@ -1,21 +1,35 @@
 
-name: ci
+name: documentation
 
 on:
   push:
     branches:
       - master
 
+env:
+  PYTHON_VERSION: 3.x
+
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: github-pages
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --force
+
+      - name: Install pip requirements.txt
+        run: |
+          pip install -r requirements.txt
+
+      - name: mkdocs deploy
         env:
           GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
+        run: |
+          mkdocs gh-deploy --force
+          mkdocs --version
