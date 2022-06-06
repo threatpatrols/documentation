@@ -1,3 +1,3 @@
-# MultiCLOUDsense
+# Threat Canary
 
 Watch this space

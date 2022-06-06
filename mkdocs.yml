@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
 site_name: ThreatPatrols.com
-site_url: https://docs.threatpatrols.com/
-site_author: Threat Patrols Pty Ltd
-site_description: Awesome this and that
+site_url: https://documentation.threatpatrols.com/
+site_author: Threat Patrols Pty. Ltd.
+site_description: Persistent cyber-security threat management
 
 # Repository
 repo_name: threatpatrols/documentation
@@ -14,6 +14,8 @@ copyright: Copyright &copy; 2021 - 2022 Threat Patrols Pty Ltd
 
 nav:
   - Documentation: index.md
+  - Threat Watch: threat-watch/index.md
+  - Threat Canary: threat-canary/index.md
   - MultiCLOUDSense: multicloudsense/index.md
   - OPNsense Plugins: opnsense-plugins/index.md
   - ThreatPatrols.com: https://www.threatpatrols.com
