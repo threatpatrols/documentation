@@ -10,14 +10,18 @@ repo_name: threatpatrols/documentation
 repo_url: https://github.com/threatpatrols/documentation
 
 # copyright
-copyright: Copyright &copy; 2021 - 2022 Threat Patrols Pty Ltd
+copyright: Copyright &copy; 2021 - 2022 Threat Patrols Pty. Ltd.
 
 nav:
   - Documentation: index.md
-  - Threat Watch: threat-watch/index.md
-  - Threat Canary: threat-canary/index.md
-  - MultiCLOUDSense: multicloudsense/index.md
-  - OPNsense Plugins: opnsense-plugins/index.md
+  - OPNsense Resources:
+    - opnsense/index.md
+    - OPNsense Plugins:
+      - opnsense/plugins/index.md
+      - Configuration Sync: opnsense/plugins/configsync/index.md
+      - AutoSSH: opnsense/plugins/autossh/index.md
+    - OPNsense Repo: opnsense/repo/index.md
+    - OPNsense Mirror: opnsense/mirror/index.md
   - ThreatPatrols.com: https://www.threatpatrols.com
 
 # theme configuration
@@ -29,23 +33,23 @@ theme:
 
   features:
     - content.code.annotate
-    # - content.tabs.link
+    # - content.tabs.link       # When enabled, all content tabs across the whole documentation site will be linked and switch to the same label when the user clicks on a tab
     - content.tooltips
-    # - header.autohide
-    # - navigation.expand
-    - navigation.indexes
-    # - navigation.instant
-    # - navigation.prune
-    - navigation.sections
-    - navigation.tabs
-    # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
+    # - header.autohide         # When autohiding is enabled, the header is automatically hidden when the user scrolls past a certain threshold, leaving more space for content
+    - navigation.expand         # When expansion is enabled, the left sidebar will expand all collapsible subsections by default, so the user doesn't have to open subsections manually
+    - navigation.indexes        # When section index pages are enabled, documents can be directly attached to sections, which is particularly useful for providing overview pages.
+    - navigation.instant        # When instant loading is enabled, clicks on all internal links will be intercepted and dispatched via XHR without fully reloading the page.
+    #- navigation.prune         # Experimental feature
+    - navigation.sections       # When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile.
+    - navigation.tabs           # When tabs are enabled, top-level sections are rendered in a menu layer below the header for viewports above 1220px, but remain as-is on mobile.
+    - navigation.tabs.sticky    # When sticky tabs are enabled, navigation tabs will lock below the header and always remain visible when scrolling down.
+    - navigation.top            # A back-to-top button can be shown when the user, after scrolling down, starts to scroll up again. It's rendered centered and just below the header.
+    - navigation.tracking       # When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents
+    #- toc.follow               # Experimental feature
+    - toc.integrate             # When navigation integration for the table of contents is enabled, it is always rendered as part of the navigation sidebar on the left.
     - search.highlight
     - search.share
     - search.suggest
-    - toc.follow
-    # - toc.integrate
 
   palette:
     - scheme: default
