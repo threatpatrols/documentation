@@ -4,7 +4,7 @@ Threat Patrols really loves OPNsense&reg; and we are proud to support the ecosys
 resources for the OPNsense community.
 
 Learn more about the awesomeness of the OPNsense platform and the heroes that produce OPNsense
-from their web directly - https://opnsense.org/about/about-opnsense/
+from their web directly - [https://opnsense.org/about/about-opnsense/](https://opnsense.org/about/about-opnsense/){target=_blank}
 
 ## [OPNsense Plugins](/opnsense/plugins)
 Threat Patrols produces a range of useful plugins for OPNsense that are easily installed 
@@ -24,4 +24,4 @@ more about how to use our mirror [here](/opnsense/mirror).
 
 ---
 
-** OPNsense is a trademark of the very awesome [Deciso B.V.](https://www.deciso.com/opnsense-open-source-firewall-initiative) company.
+** OPNsense is a trademark of the very awesome [Deciso B.V.](https://www.deciso.com/opnsense-open-source-firewall-initiative){target=_blank} company.

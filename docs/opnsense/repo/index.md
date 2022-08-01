@@ -11,7 +11,7 @@ OPNsense plugin, which will need to be done manually via SSH.
 If you decide later that you'd like to remove our repo you can simply uninstall the plugin 
 via the OPNsense web-interface -or- you can remove manually via SSH again if needed.
 
-#### Command Line
+#### command-line
 Use the following command (as root) to install the `os-threatpatrols` plugin
 ```commandline
 pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.7/stable/Latest/os-threatpatrols.pkg"
@@ -42,6 +42,19 @@ Earlier OPNsense versions are possible by adjusting the source URL to suit
 * `https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.1/stable/Latest/os-threatpatrols.pkg`
 * `https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.7/stable/Latest/os-threatpatrols.pkg`
 * `https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.1/stable/Latest/os-threatpatrols.pkg`
+
+#### unknown-repository
+OPNsense plugins installed using `pkg add` directly from a URL will report as being 
+from "unknown-repository" because the package has no knowledge of the repo it came from
+![unknown-repository](../../assets/opnsense-installed-packages-example01.png)
+
+This can be optionally resolved by forcing the re-installation of the plugin which will force the
+plugin to be re-installed via the regular pkg system
+```commandline
+pkg-static install --force os-threatpatrols
+```
+
+This is not essential but will tidy up the nagging "unknown-repository" message.
 
 ## Upgrade
 Major-version OPNsense upgrades require that you re-install the matching `os-threatpatrols` plugin,
