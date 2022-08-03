@@ -8,17 +8,17 @@ title: Documentation
 Our Threat Management components (threat-perimeter, threat-discovery, threat-canary) enable our 
 persistent cyber-security threat management products and services.
 
-We are currently at that in-between time where we want to tell people about what we have; 
+We are currently at that in-between time, where we want to tell people about what we have; 
 working on the development; and having everything ship-shape in a way that works for customers.
 
 Our Threat Management products are currently with a small number of existing customers as 
-early-access development previews and we really appreciate their interaction and regular 
+early-access development previews, and we really appreciate their interaction and regular 
 feedback.  If you are interested in participating in our early product release cycles, then 
-we'd love to hear from you too - https://www.threatpatrols.com/contact-us/development-preview
+we'd love to hear from you too - https://www.threatpatrols.com/contact/development-preview
 
 If you'd just like to be first-in-queue as our Threat Management products become more broadly 
 available then please do get yourself signed up here for an occasional email 
-from us - https://www.threatpatrols.com/stay-in-touch
+from us - https://www.threatpatrols.com/contact/stay-in-touch
 
 ## [OPNsense Resources](/opnsense/)
 Threat Patrols really loves OPNsense and we are proud to support the ecosystem with resources 
