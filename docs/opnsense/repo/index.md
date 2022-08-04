@@ -48,13 +48,15 @@ OPNsense plugins installed using `pkg add` directly from a URL will report as be
 from "unknown-repository" because the package has no knowledge of the repo it came from
 ![unknown-repository](../../assets/opnsense-installed-packages-example01.png)
 
-This can be optionally resolved by forcing the re-installation of the plugin which will force the
-plugin to be re-installed via the regular pkg system
+This can be (optionally) resolved by forcing the re-installation of the plugin which will 
+force the plugin to be re-installed via the regular system `pkg` tool.
 ```commandline
 pkg-static install --force os-threatpatrols
 ```
 
-This is not essential but will tidy up the nagging "unknown-repository" message.
+You may choose to live with the "unknown-repository" message or close-the-loop by re-obtaining 
+the `os-threatpatrols` package allowing the system `pkg` tool to hence confirm the package is
+signed the Threat Patrols fingerprints that this package supplies in the first place.
 
 ## Upgrade
 Major-version OPNsense upgrades require that you re-install the matching `os-threatpatrols` plugin,
