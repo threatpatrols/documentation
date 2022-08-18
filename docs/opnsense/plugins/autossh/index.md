@@ -1,37 +1,52 @@
-# AutoSSH (autossh) for OPNsense
+# Autossh for OPNsense
 
-AutoSSH for OPNsense is (currently) an older OPNsense plugin originally created by 
-Nicholas de Jong and no longer works with current versions of OPNsense.
+The Autossh plugin for OPNsense is a wrapper for the autossh system-package 
+that allows for establishing persistent reliable SSH tunnels with remote 
+hosts. It can be used to solve a wide range of connection challenges through 
+the (sometimes creative) use of TCP port-forwards.
 
-We are working on getting this plugin up-to-date, tested and published through the 
-Threat Patrols repo packaging pipeline.
+![Autossh Connection Status Screenshot](assets/autossh-screenshot01.png){ align=right }
 
-## Github
-* https://github.com/threatpatrols/opnsense-plugin-autossh
+Autossh tunnels can be used to quickly solve a wide range of challenges all 
+over SSH, without the need for VPN clients etc:
+ * Provide reverse-remote access to a site that has no public addresses, such as 
+   when ISPs use NAT.
+ * Ensure redundant multipath reverse-remote access via both primary and secondary 
+   connections via interface binding.
+ * Create your own "privacy" VPN system for local network users using a SOCKS 
+   proxy (ssh-dynamic-forward) to a remote system.
+ * Provide local network access to remote system services such as SMTP relays or 
+   another remote TCP services.
+ * Provide reverse-remote access to local network services such local RDP services.
+
+## Installation
+Installation is possible via the Threat Patrols repo.  Refer to the documentation 
+for details on adding our repo to your OPNsense instance:-
+
+ * https://documentation.threatpatrols.com/opnsense/repo
+
+Once the Threat Patrols repo has been added to your OPNsense system you can install 
+Configuration Sync directly from the OPNsense Plugins web-interface.
+
+![Installed Packages Screenshot](assets/repo-installed-packages-screenshot01.png){ align=right }
+
+## Source
+ * https://github.com/threatpatrols/opnsense-plugin-autossh
+
+## Copyright
+* Copyright &copy; 2022 Threat Patrols Pty Ltd &lt;contact@threatpatrols.com&gt;
+* Copyright &copy; 2018 Verb Networks Pty Ltd &lt;contact@verbnetworks.com&gt;
+* Copyright &copy; 2018 Nicholas de Jong &lt;me@nicholasdejong.com&gt;
+
+All rights reserved.
+
+## License
+* BSD-2-Clause - see LICENSE file for full details.
 
 
 
 <!---
-                
-    <h2>Features</h2>
-    <ul>
-        <li>Default ssh-keys provided with shell-prevention restrictions to prevent unwanted remote shell access.</li>
-        <li>Ability to define local-forward, remote-forward and SOCKS proxy-forwards.</li>
-        <li>Ability to bind outbound ssh connections to specific interfaces.</li>
-        <li>Ability to configure many of the ssh-client connection parameters, including all cryptographic options.</li>
-        <li>Ability to observe the health status of a tunnel at a glance.</li>
-        <li>Rely on autossh to reestablish a tunnel after a connectivity disruption.</li>
-    </ul>
-    
-    <h2>Various use cases</h2>
-    <ul>
-        <li>Provide remote network access to a site that has no public addresses, such as when ISPs use NAT.</li>
-        <li>Ensure redundant multipath remote access via primary and secondary connections via interface binding.</li>
-        <li>Create your own "privacy" VPN system for all local network users using a SOCKS proxy (dynamic-forward) to a remote system.</li>
-        <li>Provide local network access to remote system services such as a SMTP relay or another SSH service.</li>
-        <li>Provide remote system access to a local network services such as a database or RDP service.</li>
-        <li>Provide access remote system access to other remote network acting as a middle-man TCP-port connector.</li>
-    </ul>
+              
 
     <h2>Tunnel configuration</h2>
     <h3>Local Forward</h3>
