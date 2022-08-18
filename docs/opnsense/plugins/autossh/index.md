@@ -29,7 +29,6 @@ for details on adding our repo to your OPNsense instance:-
 Once the Threat Patrols repo has been added to your OPNsense system you can install 
 Configuration Sync directly from the OPNsense Plugins web-interface.
 
-
 ## Source
  * https://github.com/threatpatrols/opnsense-plugin-autossh
 
