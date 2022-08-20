@@ -127,6 +127,8 @@ These fields are
 These values are helpful in filtering and selecting specific configuration files from the 
 storage-provider bucket at a later time.
 
+---
+
 ## Source
  * https://github.com/threatpatrols/opnsense-plugin-configsync
 
