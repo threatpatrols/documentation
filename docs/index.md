@@ -4,7 +4,7 @@ title: Documentation
 
 # Documentation - ThreatPatrols.com
 
-## [Threat Management](https://www.threatpatrols.com/products/threat-management)
+## Threat Management
 Our Threat Management components (threat-perimeter, threat-discovery, threat-canary) enable our 
 persistent cyber-security threat management products and services.
 
@@ -20,17 +20,25 @@ If you'd just like to be first-in-queue as our Threat Management products become
 available then please do get yourself signed up here for an occasional email 
 from us - https://www.threatpatrols.com/contact/stay-in-touch
 
-## [OPNsense Resources](/opnsense/)
-Threat Patrols really loves OPNsense and we are proud to support the ecosystem with resources 
-for the OPNsense community.  We provide a public Cloudflare CDN backed mirror; a package distribution 
-repo; and we produce some awesome OPNsense plugins.  Find out more [here](/opnsense/).
+## OPNsense Resources
+Threat Patrols really loves OPNsense, and we are proud to support the ecosystem with
+resources for the OPNsense community.  We currently provide:
 
-## [System Status](https://status.threatpatrols.com){target=_blank}
-Responsibility for high service uptime and availability is core part of our business and 
-we make it easy for external parties to monitor and review our performance - [https://status.threatpatrols.com](https://status.threatpatrols.com){target=_blank}
+ - a public Cloudflare CDN backed mirror; 
+ - a package distribution repo; 
+ - some awesome OPNsense plugins; Autossh, ConfigSync and MultiCLOUDsense
 
-## [security.txt](https://www.threatpatrols.com/.well-known/security.txt)
-We believe quick, easy security contact is an important part of cyber-security operations and
-like the [`security.txt`](https://securitytxt.org/) proposal (RFC9116).  We maintain both 
-a [.well-known](https://www.threatpatrols.com/.well-known/security.txt) http record and a 
-DNS TXT record at `_security.threatpatrols.com`
+Find out more: [https://documentation.threatpatrols.com/opnsense/](https://documentation.threatpatrols.com/opnsense/)
+
+## System Status
+ - Services: [https://status.threatpatrols.com](https://status.threatpatrols.com){target=_blank}
+ - Packages: [https://status.threatpatrols.com/status/package-status](https://status.threatpatrols.com/status/package-status){target=_blank}
+
+
+## Security.txt
+We believe quick easy security contact is an important part of cyber-security operations.  We
+like the [`security.txt`](https://securitytxt.org/) RFC9116 proposal and maintain 
+a `.well-known` HTTP record and a `_security` DNS TXT record.
+
+ - HTTP: [https://www.threatpatrols.com/.well-known/security.txt](https://www.threatpatrols.com/.well-known/security.txt)
+ - DNS TXT: `_security.threatpatrols.com`

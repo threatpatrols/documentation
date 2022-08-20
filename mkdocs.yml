@@ -16,10 +16,8 @@ nav:
   - Documentation: index.md
   - OPNsense Resources:
     - opnsense/index.md
-    - OPNsense Plugins:
-      - opnsense/plugins/index.md
-      - Configuration Sync: opnsense/plugins/configsync/index.md
-      - AutoSSH: opnsense/plugins/autossh/index.md
+    - Autossh Plugin: opnsense/plugins/autossh/index.md
+    - ConfigSync Plugin: opnsense/plugins/configsync/index.md
     - OPNsense Repo: opnsense/repo/index.md
     - OPNsense Mirror: opnsense/mirror/index.md
   - ThreatPatrols.com: https://www.threatpatrols.com
@@ -78,7 +76,7 @@ plugins:
   - search
   - redirects:
       redirect_maps:
-        changelog/foobar.md: other/foobar.md
+        opnsense/plugins: opnsense/index.md
   - minify:
       minify_js: true
       minify_css: true
