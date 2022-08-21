@@ -202,7 +202,9 @@ a network that exists behind an ssh-server.
 ---
 
 ## Issues
-Please post any issues via Github - https://github.com/threatpatrols/opnsense-plugin-autossh/issues 
+Please post issues via Github:
+
+ * https://github.com/threatpatrols/opnsense-plugin-autossh/issues 
 
 ## Source
  * https://github.com/threatpatrols/opnsense-plugin-autossh
