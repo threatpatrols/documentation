@@ -10,19 +10,19 @@ that produce OPNsense from their web directly - [https://opnsense.org/about/abou
 Threat Patrols produces plugins for OPNsense that can be installed from the 
 Threat Patrols [repo](/opnsense/repo) to your OPNsense instance.
 
- - Autossh: [opnsense/plugins/autossh](/opnsense/plugins/autossh)
- - Configuration Sync: [opnsense/plugins/configsync](/opnsense/plugins/configsync/)
+ - Autossh: [/opnsense/plugins/autossh](/opnsense/plugins/autossh)
+ - Configuration Sync: [/opnsense/plugins/configsync](/opnsense/plugins/configsync/)
 
 ## Threat Patrols Package Repository
 Threat Patrols operates a package repository with OPNsense packages signed by us that 
 allows you to easily install our packages and plugins.
 
- - Package Repository: [opnsense/repo](/opnsense/repo)
+ - Package Repository: [/opnsense/repo](/opnsense/repo)
 
 ## OPNsense Mirror
 Threat Patrols provides a public OPNsense mirror through the Cloudflare CDN.
 
- - OPNsense mirror: [opnsense/mirror](/opnsense/mirror).
+ - OPNsense mirror: [/opnsense/mirror](/opnsense/mirror)
 
 ---
 

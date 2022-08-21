@@ -24,13 +24,11 @@ library to achieve generic S3 connectivity; if Boto3 can handle the S3 storage p
 you should be able to use it here.
 
 ## Installation
-Installation is possible via the Threat Patrols repo.  Refer to the documentation 
-for details on adding our repo to your OPNsense instance:-
+Installation from the Threat Patrols package repository is possible using the standard
+OPNsense Firmware-Plugin web-interface after the `os-threatpatrols` plugin has been added
+to your system.
 
- * https://documentation.threatpatrols.com/opnsense/repo
-
-Once the Threat Patrols repo has been added to your OPNsense system you can install 
-Configuration Sync directly from the OPNsense Plugins web-interface.
+ - Package Repository: [opnsense/repo](/opnsense/repo/)
 
 ## General Settings Recommendations
  * __Storage Path__ - recommended to use different storage paths per OPNsense instance 

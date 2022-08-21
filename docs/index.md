@@ -28,7 +28,7 @@ resources for the OPNsense community.  We currently provide:
  - a package distribution repo; 
  - some awesome OPNsense plugins; Autossh, ConfigSync and MultiCLOUDsense
 
-Find out more: [https://documentation.threatpatrols.com/opnsense/](https://documentation.threatpatrols.com/opnsense/)
+Find more here: [/opnsense](https://documentation.threatpatrols.com/opnsense/)
 
 ## System Status
  - Services: [https://status.threatpatrols.com](https://status.threatpatrols.com){target=_blank}
