@@ -2,132 +2,148 @@
 Threat Patrols operates a repository for OPNsense packages signed by Threat Patrols 
 that allow you to easily install our packages and plugins.
 
-The Threat Patrols package repo is delivered via Cloudflare CDN at [https://repo.threatpatrols.com](https://repo.threatpatrols.com){target=_blank}
+!!! info
+    The Threat Patrols package repo is delivered via Cloudflare CDN from [https://repo.threatpatrols.com](https://repo.threatpatrols.com){target=_blank}
 
 ## Install
-You can easily add our repository to your OPNsense instance by installing the `os-threatpatrols` 
-OPNsense plugin, which will need to be done manually via SSH.
+Add the Threat Patrols package repository to your OPNsense instance by installing 
+the `os-threatpatrols` plugin from the OPNsense instance terminal.
 
-If you decide later that you'd like to remove our repo you can simply uninstall the plugin 
-via the OPNsense web-interface -or- you can remove manually via SSH again if needed.
+If you decide later that you'd like to remove the Threat Patrols package repo, you can 
+simply remove the plugin using the regular OPNsense web-interface.
 
-#### command-line
 Use the following command (as root) to install the `os-threatpatrols` plugin
+
+#### OPNsense 22.7
 ```commandline
-pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.7/stable/Latest/os-threatpatrols.pkg"
+pkg-static add \
+  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.7/stable/Latest/os-threatpatrols.pkg"
 ```
 
-You should see something similar to this
-```commandline
-root@OPNsense-MultiCLOUDsense:/root # pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.7/develop/Latest/os-threatpatrols.pkg"
-Fetching os-threatpatrols.pkg: 100%    1 KiB   1.4kB/s    00:01
-Installing os-threatpatrols-1.0.3...
-Extracting os-threatpatrols-1.0.3: 100%
-Updating OPNsense repository catalogue...
-Fetching meta.conf: 100%    163 B   0.2kB/s    00:01
-Fetching packagesite.pkg: 100%  221 KiB 226.4kB/s    00:01
-Processing entries: 100%
-OPNsense repository update completed. 797 packages processed.
-Updating ThreatPatrols repository catalogue...
-Fetching meta.conf: 100%    104 B   0.1kB/s    00:01
-Fetching packagesite.pkg: 100%    2 KiB   2.2kB/s    00:01
-Processing entries: 100%
-ThreatPatrols repository update completed. 1 packages processed.
-All repositories are up to date.
-```
+??? example "Sample command output (click to expand)"
+
+    You should see output similar to this
+
+    ```commandline
+    root@OPNsense:~ # pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.7/stable/Latest/os-threatpatrols.pkg"
+    Fetching os-threatpatrols.pkg: 100%    2 KiB   2.3kB/s    00:01
+    Installing os-threatpatrols-1.0.20...
+    Extracting os-threatpatrols-1.0.20: 100%
+    Updating OPNsense repository catalogue...
+    Fetching meta.conf: 100%    163 B   0.2kB/s    00:01
+    Fetching packagesite.pkg: 100%  222 KiB 227.0kB/s    00:01
+    Processing entries: 100%
+    OPNsense repository update completed. 798 packages processed.
+    Updating ThreatPatrols repository catalogue...
+    Fetching meta.conf: 100%    104 B   0.1kB/s    00:01
+    Fetching packagesite.pkg: 100%    3 KiB   3.0kB/s    00:01
+    Processing entries: 100%
+    ThreatPatrols repository update completed. 3 packages processed.
+    All repositories are up to date.
+    OK
+    Stopping configd...done
+    Starting configd.
+    root@OPNsense:~ #
+    ```
 
 Earlier OPNsense versions are possible by adjusting the source URL to suit
 
-* `https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.7/stable/Latest/os-threatpatrols.pkg`
-* `https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.1/stable/Latest/os-threatpatrols.pkg`
-* `https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.7/stable/Latest/os-threatpatrols.pkg`
-* `https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.1/stable/Latest/os-threatpatrols.pkg`
-
-#### unknown-repository
-OPNsense plugins installed using `pkg add` directly from a URL will report as being 
-from "unknown-repository" because the package has no knowledge of the repo it came from
-![unknown-repository](../../assets/opnsense-installed-packages-example01.png)
-
-This can be (optionally) resolved by forcing the re-installation of the plugin which will 
-force the plugin to be re-installed via the regular system `pkg` tool.
-```commandline
-pkg-static install --force os-threatpatrols
+#### OPNsense 22.1
+```
+pkg-static add \
+  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.1/stable/Latest/os-threatpatrols.pkg"
 ```
 
-You may choose to live with the "unknown-repository" message or close-the-loop by re-obtaining 
-the `os-threatpatrols` package allowing the system `pkg` tool to hence confirm the package is
-signed the Threat Patrols fingerprints that this package supplies in the first place.
+#### OPNsense 21.7
+```
+pkg-static add \
+  "https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.7/stable/Latest/os-threatpatrols.pkg"
+```
+
+#### OPNsense 21.1
+```
+pkg-static add \
+  "https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.1/stable/Latest/os-threatpatrols.pkg"
+```
 
 ## Upgrade
-Major-version OPNsense upgrades require that you re-install the matching `os-threatpatrols` plugin,
-simply follow the same install process above - if you get an error response check that you've
-picked the right source URL first.
+Major-version OPNsense upgrades require that you re-install the matching version `os-threatpatrols` 
+plugin.  Follow the same install process using the URL for the latest OPNsense version. 
 
 ## Remove
-You can easily remove the `os-threatpatrols` plugin by uninstalling it via the regular OPNsense 
-web-interface, or SSH in and use the following command
+You can easily remove the Threat Patrols package repo from your OPNsense system by uninstalling 
+the `os-threatpatrols` via the regular OPNsense web-interface via System->Firmware->Plugins menu.
+
+Alternatively, you can remove using from a (root) terminal prompt
 ```commandline
-pkg-static remove os-threatpatrols
+pkg remove os-threatpatrols
 ```
 
-You should see something similar to this
-```commandline
-root@OPNsense-MultiCLOUDsense:/root # pkg-static remove os-threatpatrols
-Updating database digests format: 100%
-Checking integrity... done (0 conflicting)
-Deinstallation has been requested for the following 1 packages (of 0 packages in the universe):
+??? example "Sample command output (click to expand)"
 
-Installed packages to be REMOVED:
-        os-threatpatrols: 1.0.3
+    You should see output similar to this
 
-Number of packages to be removed: 1
+    ```commandline
+    root@OPNsense:~ # pkg remove os-threatpatrols
+    Checking integrity... done (0 conflicting)
+    Deinstallation has been requested for the following 1 packages (of 0 packages in the universe):
+    
+    Installed packages to be REMOVED:
+            os-threatpatrols: 1.0.20
+    
+    Number of packages to be removed: 1
+    
+    Proceed with deinstalling packages? [y/N]: y
+    [1/1] Deinstalling os-threatpatrols-1.0.20...
+    [1/1] Deleting files for os-threatpatrols-1.0.20: 100%
+    root@OPNsense:~ #
+    ```
 
-Proceed with deinstalling packages? [y/N]: y
-[1/1] Deinstalling os-threatpatrols-1.0.3...
-[1/1] Deleting files for os-threatpatrols-1.0.3: 100%
-```
+!!! note
 
-#### Plugin Orphans
-When you remove `os-threatpatrols` you are removing the files that tell OPNsense about where the 
-Threat Patrols repo is.  If you have Threat Patrols plugins installed then those packages and 
-plugins will appear as "orphans" since they no longer know which repo they came from.
+    When you remove `os-threatpatrols` you are removing the system information that tells 
+    OPNsense where the Threat Patrols repo is.  If you have Threat Patrols plugins installed 
+    when you remove `os-threatpatrols` then those remaining packages and plugins will appear 
+    as "orphans" since they no longer know which repo they belong to.
 
-## Package Repo Status Monitoring
+## Repo Status Monitoring
 Additional to being transparent about our [system-uptime](https://status.threatpatrols.com/){target=_blank} 
-we also closely monitor the packaging status across each of our release streams (Development, Testing, 
-Stable) for each supported OPNsense release. 
+we also closely monitor the packaging status across each of our release streams (Stable, Testing, 
+Develop) for each supported OPNsense release. 
 
-[https://status.threatpatrols.com/status/package-status](https://status.threatpatrols.com/status/package-status){target=_blank}
+ * Packages Status: [https://status.threatpatrols.com/status/package-status](https://status.threatpatrols.com/status/package-status){target=_blank}
 
 ## Signing Key Fingerprints
 Threat Patrols makes our key-fingerprints of the package signing keys available through our 
 repo
 
-[https://repo.threatpatrols.com/keys/](https://repo.threatpatrols.com/keys/){target=_blank}
+ * Signing Key Fingerprints: [https://repo.threatpatrols.com/keys/](https://repo.threatpatrols.com/keys/){target=_blank}
 
-When you install the Threat Patrols repo-plugin (per above) we add our signing-key 
+When you install the Threat Patrols repo-plugin `os-threatpatrols` you are adding our signing-key 
 fingerprints to your OPNsense host.  This mechanism ensures the packages you are installing 
 really come from us.
 
-Our signing key fingerprints are located on your OPNsense system here
+Our signing key fingerprints are located on your OPNsense system in the path
 ```
 /usr/local/etc/pkg/fingerprints/ThreatPatrols/trusted
 ```
 
-We supply 2x fingerprints to future-proof any situation where we decide to revoke our current 
-active key `repo.threatpatrols.com-opnsense_20220105b`
+We supply 2x fingerprints to future-proof any situation where we decide to revoke our current
+packag signing key.
 
-You may additionally observe a revoked key in our repo `repo.threatpatrols.com-opnsense_20220105a.fingerprint` 
+ * Current package signing key: `repo.threatpatrols.com-opnsense_20220105b`
+
+You may additionally observe a "revoked" key in our repo `repo.threatpatrols.com-opnsense_20220105a.fingerprint` 
 this key purely exists for testing to confirm the packaging tooling correctly rejects any 
 package signed by this key - it is not used for any other purpose.
 
 ## Key Fingerprint Verification
-We GPG sign our `.fingerprint` files allowing you to confirm our fingerprints as being from 
-us.  We use the same [GPG key](https://www.threatpatrols.com/.well-known/threatpatrols.pgp) 
+We GPG sign our `.fingerprint` files allowing you to independently confirm our fingerprints 
+are really from us.  We use the same [GPG key](https://www.threatpatrols.com/.well-known/threatpatrols.pgp) 
 as per our [`security.txt`](https://www.threatpatrols.com/.well-known/security.txt) to sign 
 these.
 
-Steps to confirm our `.fingerprint` files
+Steps to confirm our `.fingerprint` files:
 
 Step 1) Acquire the Threat Patrols GPG public key - https://www.threatpatrols.com/.well-known/threatpatrols.pgp
 ```commandline
@@ -168,8 +184,20 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: B512 FB73 1A4C 61FB 45E2  7C3C 2C78 E60F D912 408F
 ```
 
-## Github
-The source for this relatively simple plugin is available via Github, feel free to submit tickets 
-should you discover an issue 
+---
 
-https://github.com/threatpatrols/opnsense-plugin-threatpatrols
+## Issues
+Please post issues via Github:
+
+ * https://github.com/threatpatrols/opnsense-plugin-threatpatrols/issues 
+
+## Source
+ * https://github.com/threatpatrols/opnsense-plugin-threatpatrols
+
+## Copyright
+* Copyright &copy; 2022 Threat Patrols Pty Ltd &lt;contact@threatpatrols.com&gt;
+
+All rights reserved.
+
+## License
+BSD-2-Clause - see LICENSE file for full details.
