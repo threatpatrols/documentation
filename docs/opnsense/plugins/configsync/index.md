@@ -1,16 +1,17 @@
 # Configuration Sync (configsync) for OPNsense
-Configuration Sync (configsync) is an OPNsense plugin designed to one-way 
-synchronize the OPNsense system configuration `.xml` files to an (S3 
-compatible) cloud-storage provider.  Actions for `configsync` are triggered 
-by an OPNsense syshook-config event.
 
-![Configuration Sync Settings](assets/configsync-screenshot01.png){ align=right }
+![Configuration Sync Menu](assets/opnsense-menu-configsync.png){ align=right }
+
+Configuration Sync (configsync) is an OPNsense plugin designed to one-way 
+synchronize the OPNsense system configuration `.xml` files to an (S3 compatible) 
+cloud-storage provider.  Actions for `configsync` are automatically triggered 
+by an OPNsense syshook-config event.
 
 Configuration Sync is well-suited to DevOps automation arrangements where OPNsense
 instances are re-invoked with a previously existing configuration.
 
-Configuration Sync happens to be a great OPNsense configuration backup solution when 
-used by itself.
+Configuration Sync also happens to be a great OPNsense configuration backup solution 
+when used by itself.
 
 Configuration Sync supports the following cloud storage providers:-
 
@@ -31,6 +32,9 @@ to your system.
  - Package Repository: [opnsense/repo](/opnsense/repo/)
 
 ## General Settings Recommendations
+
+![Configuration Sync Settings](assets/configsync-screenshot01.png){ align=right }
+
  * __Storage Path__ - recommended to use different storage paths per OPNsense instance 
    else you will end up with configuration files from multiple OPNsense instances in the 
    same S3 storage path.  It is still possible to determine which OPNsense instance each 
@@ -48,7 +52,9 @@ to your system.
  * __Endpoint URL Override__ - generally not required for AWS-S3 since the URL endpoint
    for AWS-S3 is self-determined using their [virtual-hosted–style](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) 
    bucket access that uses a CNAME arrangement to direct requests to the right AWS region.
- * __Example IAM Policy__
+ * __Example IAM Policy__ - the AWS IAM policy below describes the minimum permissions
+   policy required by a ConfigSync service account. 
+
 ```json
 {
     "Version": "2012-10-17",
@@ -66,7 +72,9 @@ to your system.
     ]
 }
 ```
-NB1: Be sure to replace `BUCKET_NAME` and `PATH_NAME` values with your own values above.
+!!! note
+    Take care to replace `BUCKET_NAME` and `PATH_NAME` values with your own values 
+    if you plan to cut-n-paste from above.
 
 ### Google - Cloud Storage
 ![Google HMAC Credential](assets/google-hmac-credential01.png){ align=right }
@@ -126,6 +134,11 @@ These values are helpful in filtering and selecting specific configuration files
 storage-provider bucket at a later time.
 
 ---
+
+## Issues
+Please post issues via Github:
+
+ * https://github.com/threatpatrols/opnsense-plugin-configsync/issues 
 
 ## Source
  * https://github.com/threatpatrols/opnsense-plugin-configsync

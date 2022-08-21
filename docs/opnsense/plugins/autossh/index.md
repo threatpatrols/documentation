@@ -1,6 +1,6 @@
 # Autossh for OPNsense
 
-![Autossh Connection Status Screenshot](assets/opnsense-menu-autossh.png){ align=right }
+![Autossh Connection Menu](assets/opnsense-menu-autossh.png){ align=right }
 
 The Autossh plugin for OPNsense is a wrapper around the [autossh system-package](https://www.freebsd.org/cgi/man.cgi?query=autossh)
 that makes it possible to create persistent and reliable SSH based tunnels from 
@@ -218,36 +218,3 @@ All rights reserved.
 
 ## License
 * BSD-2-Clause - see LICENSE file for full details.
-
-
-
-<!---
-              
-
-    <h2>Tunnel configuration</h2>
-    <h3>Local Forward</h3>
-    <p>
-        Describe how to expose a remote TCP port into the local network
-    </p>
-    
-    <h3>Remote Forward</h3>
-    <p>
-        Describe how to expose a TCP port in the local network at a remote system
-    </p>
-    
-    <h3>Dynamic Forward</h3>
-    <p>
-        Describe how to write an expression that creates a SOCKS proxy for the local network
-    </p>
-    
-    <h3>Gateway Ports</h3>
-    <p>
-        Describe the situations where this is important and required
-    </p>
-    
-    <h3>Strict Host Key Checking</h3>
-    <p>
-        Describe what this is all about and the interaction with the "Update Host Keys" property
-    </p>
-
---->

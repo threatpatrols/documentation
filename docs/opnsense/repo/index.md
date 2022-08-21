@@ -1,6 +1,6 @@
 # Threat Patrols Repo for OPNsense
-Threat Patrols operates a repository for OPNsense packages allowing you to easily 
-add our packages and plugins to your OPNsense instance.
+Threat Patrols operates a repository for OPNsense packages signed by Threat Patrols 
+that allow you to easily install our packages and plugins.
 
 The Threat Patrols package repo is delivered via Cloudflare CDN at [https://repo.threatpatrols.com](https://repo.threatpatrols.com){target=_blank}
 
