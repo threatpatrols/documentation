@@ -66,10 +66,6 @@ pkg-static add \
   "https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.1/stable/Latest/os-threatpatrols.pkg"
 ```
 
-## Upgrade
-Major-version OPNsense upgrades require that you re-install the matching version `os-threatpatrols` 
-plugin.  Follow the same install process using the URL for the latest OPNsense version. 
-
 ## Remove
 You can easily remove the Threat Patrols package repo from your OPNsense system by uninstalling 
 the `os-threatpatrols` via the regular OPNsense web-interface via System->Firmware->Plugins menu.
