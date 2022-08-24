@@ -25,4 +25,4 @@ subsequent requests are then served directly from a Cloudflare CDN near you.  Aw
 
 ## Screenshot
 
-![Mirror](../../assets/mirror-screenshot02.png)
+![Mirror](assets/mirror-screenshot02.png)

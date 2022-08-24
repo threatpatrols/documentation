@@ -66,9 +66,69 @@ pkg-static add \
   "https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.1/stable/Latest/os-threatpatrols.pkg"
 ```
 
+## Desktop Widget
+
+![Mirror](assets/threatpatrols-repository-info.png){ align=right }
+
+Installation of `os-threatpatrols` also creates an optional desktop-widget view 
+that shows at-a-glance the Threat Patrols packages currently installed on the 
+OPNsense system.
+
+Add this widget using the "+ Add Widget" button located at the top of the main 
+OPNsense Dashboard view, then select "Threat Patrols Repository Info"
+
+The screenshot provided shows `os-threatpatrols` installed on an OPNsense 21.1 
+instance with the ThreatPatrols repo configured for use, and packages installed 
+from the ThreatPatrolsTesting repo.
+
+## Release Streams
+It is possible to switch ThreatPatrols release streams from the terminal with 
+the following commands.
+
+#### Stable
+```
+configctl threatpatrols repo use_stable
+```
+
+??? example "Sample command output (click to expand)"
+
+    Only if there is a change in the ThreatPatrols repo being used will an update
+    occur, as shown below -
+
+    ```commandline
+    root@OPNsense:~ # configctl threatpatrols repo use_stable
+    Updating OPNsense repository catalogue...
+    Fetching meta.conf: . done
+    Fetching packagesite.pkg: .......... done
+    Processing entries: .......... done
+    OPNsense repository update completed. 798 packages processed.
+    Updating ThreatPatrols repository catalogue...
+    Fetching meta.conf: . done
+    Fetching packagesite.pkg: . done
+    Processing entries: . done
+    ThreatPatrols repository update completed. 4 packages processed.
+    All repositories are up to date.
+    root@OPNsense:~ #
+    ```
+
+#### Testing
+Only use the testing release stream if you are comfortable in dealing with occasional
+issues and are willing to report those issues via the related Github issues channel.
+```
+configctl threatpatrols repo use_testing
+```
+
+#### Develop
+
+!!! caution
+    A release-stream for `ThreatPatrolsDevelop` exists via the `use_develop` 
+    argument, however it is __not__ recommended and is subject to regular change, 
+    breakage and failure.
+
 ## Remove
-You can easily remove the Threat Patrols package repo from your OPNsense system by uninstalling 
-the `os-threatpatrols` via the regular OPNsense web-interface via System->Firmware->Plugins menu.
+You can easily remove the Threat Patrols package repo from your OPNsense system
+by uninstalling the `os-threatpatrols` via the regular OPNsense web-interface 
+via System->Firmware->Plugins menu.
 
 Alternatively, you can remove using from a (root) terminal prompt
 ```commandline
