@@ -7,8 +7,9 @@ synchronize the OPNsense system configuration `.xml` files to an (S3 compatible)
 cloud-storage provider.  Actions for `configsync` are automatically triggered 
 by an OPNsense syshook-config event.
 
-Configuration Sync is well-suited to DevOps automation arrangements where OPNsense
-instances are re-invoked with a previously existing configuration.
+Configuration Sync is well-suited to DevOps automation situations where OPNsense
+instances are re-invoked with a previously existing configuration - such as when 
+using MultiCLOUDsense to handle the bootstrapping of an OPNsense cloud instance.
 
 Configuration Sync also happens to be a great OPNsense configuration backup solution 
 when used by itself.
@@ -35,14 +36,15 @@ to your system.
 
 ![Configuration Sync Settings](assets/configsync-screenshot01.png){ align=right }
 
- * __Storage Path__ - recommended to use different storage paths per OPNsense instance 
-   else you will end up with configuration files from multiple OPNsense instances in the 
-   same S3 storage path.  It is still possible to determine which OPNsense instance each 
-   stored configuration file originated from using the inserted meta-data attributes if
-   required.
- * __API Key / API Secret Credentials__ - strongly recommended that you use a dedicated 
-   service-account with an access policy that constrains the service-account to a policy
-   that allows `list-bucket` and `put-bucket` actions (or the storage-provider equivalent 
+ * __Storage Path__ - recommend that you use different storage paths per OPNsense 
+   instance else you will end up with configuration files from multiple OPNsense 
+   instances in the same S3 storage path that will clobber the `config-current.xml`
+   of one another.  If this does occur, it is possible to examine the S3-object
+   meta-data attributes that are added by ConfigSync to determine which files belong
+   to each OPNsense instance.
+ * __API Key / API Secret Credentials__ - strongly recommend that you use a dedicated 
+   service-account with an access policy that constrains the service-account to permissions
+   allowing `list-bucket` and `put-bucket` actions (or the storage-provider equivalent 
    of these).  The Configuration Sync tool is designed to __not__ require any `get-object` 
    or other object-read access which in-turn greatly limits risks associated with these 
    API credentials, if this restrictive service-account policy is applied.
@@ -51,30 +53,31 @@ to your system.
 ### AWS - S3
  * __Endpoint URL Override__ - generally not required for AWS-S3 since the URL endpoint
    for AWS-S3 is self-determined using their [virtual-hosted–style](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) 
-   bucket access that uses a CNAME arrangement to direct requests to the right AWS region.
+   bucket access that uses a CNAME arrangement to direct requests to the correct AWS 
+   region for your bucket.
  * __Example IAM Policy__ - the AWS IAM policy below describes the minimum permissions
    policy required by a ConfigSync service account. 
 
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [ "s3:ListBucket" ],
-            "Resource": [ "arn:aws:s3:::BUCKET_NAME" ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [ "s3:ListBucket", "s3:PutObject" ],
-            "Resource": [ "arn:aws:s3:::BUCKET_NAME/PATH_NAME/*" ]
-        }
-    ]
-}
-```
-!!! note
-    Take care to replace `BUCKET_NAME` and `PATH_NAME` values with your own values 
-    if you plan to cut-n-paste from above.
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [ "s3:ListBucket" ],
+                "Resource": [ "arn:aws:s3:::BUCKET_NAME" ]
+            },
+            {
+                "Effect": "Allow",
+                "Action": [ "s3:ListBucket", "s3:PutObject" ],
+                "Resource": [ "arn:aws:s3:::BUCKET_NAME/PATH_NAME/*" ]
+            }
+        ]
+    }
+    ```
+    !!! note
+        Be sure to replace the `BUCKET_NAME` and `PATH_NAME` values with your own values 
+        if you plan to cut-n-paste from above.
 
 ### Google - Cloud Storage
 ![Google HMAC Credential](assets/google-hmac-credential01.png){ align=right }
@@ -97,9 +100,11 @@ to your system.
     Singapore.
   * __API Key / API Secret Credentials__ - Digital Ocean provides S3 compatible credentials
     out-of-the-box that are accessed by navigating __API__ > __Tokens/Keys__ > __Spaces access keys__
-  * NB: Digital Ocean does not currently provide the same type of service-accounts or access 
-    policies as is possible with Google and AWS.  You may need to consider if this type of
-    unrestricted bucket-access is appropriate for your use case.
+
+    !!! attention
+        Digital Ocean does not currently provide the same type of service-accounts or access 
+        policies that are possible with Google, AWS and others.  You may need to consider if 
+        this type of unrestricted bucket-access is appropriate for your use case.
 
 ### Other - S3 compatible
 ![MinIO Example Config](assets/minio-example01.png){ align=right }
@@ -132,6 +137,8 @@ These fields are
 
 These values are helpful in filtering and selecting specific configuration files from the 
 storage-provider bucket at a later time.
+
+(Don't worry the observable attributes in the screenshot are not a thing)
 
 ---
 

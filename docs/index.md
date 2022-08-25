@@ -11,10 +11,10 @@ persistent cyber-security threat management products and services.
 We are currently at that in-between time, where we want to tell people about what we have; 
 working on the development; and having everything ship-shape in a way that works for customers.
 
-Our Threat Management products are with a number of early-access development customers, and 
-we really appreciate their regular interaction and regular feedback.  If you have the time 
-resources available to participate in our early product release cycles then we'd love to 
-hear from you too - https://www.threatpatrols.com/contact/development-preview
+Our Threat Management products are with some hand-picked early-access development customers, 
+and we genuinely appreciate their regular interaction and regular feedback.  If you believe you 
+have the time resources available to participate in our early product release cycles then 
+we'd love to hear from you too - https://www.threatpatrols.com/contact/development-preview
 
 If you'd just like to be first-in-queue as our Threat Management products become more broadly 
 available then consider getting yourself signed up for an occasional email from 

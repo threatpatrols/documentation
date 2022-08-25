@@ -4,7 +4,7 @@
 
 The Autossh plugin for OPNsense is a wrapper around the [autossh system-package](https://www.freebsd.org/cgi/man.cgi?query=autossh)
 that makes it possible to create persistent and reliable SSH based tunnels from 
-remote-to-local; local-to-remote; or dynamic SOCKS5-based forward - all tunneled 
+remote-to-local; local-to-remote; or dynamic SOCKS5-based forward.  All tunneled 
 within the safety and security of a standard SSH connection.
 
 SSH port forwarding (and by extension Autossh) can be used to solve a wide range 
@@ -41,7 +41,7 @@ to your system.
 ## Keys
 ![Autossh Keygen Modal](assets/autossh-keygen-modal.png){ align=right }
 
-Before creating an SSH-tunnel you must create an SSH-key from the Autossh->Settings->Keys tab.
+Before creating an SSH-tunnel you need to create an SSH-key from the Autossh->Settings->Keys tab.
 
 Create a key by pressing the __+__ symbol next to the rubbish-bin symbol on the bottom 
 right-hand-side of the Autossh->Settings->Keys tab.
@@ -68,9 +68,10 @@ mistakenly using keys that are also used for other purposes.
 The SSH Public key is available by pressing the key-shaped icon under "Commands" in 
 the Autossh->Settings->Keys tab.
 
-The SSH-public key is generated with a prefix that define restrictions to prevent SSH
-connections from opening a terminal-shell on the remote system; forwarding the ssh-agent 
-from OPNsense (there should not be one anyway); or forwarding remote X-sessions if they exist.
+The SSH-public key is generated with a prefix that impose restrictions on the ability 
+to of this SSH-key to invoke a terminal-shell; forward any kind of ssh-agent from 
+OPNsense (should not exist anyway); or forward remote X-sessions (also not expected 
+to exist)
 
 The SSH-public key prefix that implements these restrictions looks like this:
 
@@ -78,54 +79,56 @@ The SSH-public key prefix that implements these restrictions looks like this:
 command="",no-agent-forwarding,no-pty,no-user-rc,no-X11-forwarding
 ```
 
-This constrains the SSH-connection to port-tunneling usage only and means the private-key
-cannot be repurposed to gain shell access on the remote system.
+This limits SSH-connections to port-tunneling purposes only and means the 
+private-key cannot be misused to gain shell access on the remote system.
 
-Additionally, the SSH-public key is suffixed with the `autossh_key_id:` value that helps
-identify the same key in the OPNsense system.
+Additionally, the SSH-public key is suffixed with the `autossh_key_id:` value 
+that helps identify the same key in the OPNsense system.
 
-The entire SSH-public key value should be cut-n-paste from the OPNsense user-interface 
-to the remote system `.ssh/authorized_keys` file.
+The entire SSH-public key value should be cut-n-paste from the OPNsense 
+user-interface to the remote system `.ssh/authorized_keys` file.
 
-It is recommended that you use a service-account at the SSH-server for the purpose of 
-operating your SSH-tunnels.  If this is not possible for some reason, then recall 
-that SSH allows users to define more than one ssh-key in their `.ssh/authorized_keys` file 
-and therefore allows you to continue using any existing keys(s) while adding another 
-ssh-public key for this tunneling purpose.
+It is recommended that you use a dedicated service-account at the SSH-server 
+for the purpose of operating your SSH-tunnels.  If this is not possible for 
+some reason, then recall that SSH allows users to define more than one ssh-key 
+in their `.ssh/authorized_keys` file and therefore allows you to continue 
+using any existing keys(s) while adding another ssh-public key for this 
+tunneling purpose.
 
 ## Tunnels
 
 !!! tip
-    You will need to create an SSH-key to work with before attempting to create an 
-    SSH-tunnel.
+    Create an SSH-key before attempting to create an SSH-tunnel, else your SSH-connection 
+    will not have any available keys to select and choose from.
 
 Create a new tunnel by pressing the __+__ symbol next to the rubbish-bin symbol on 
 the bottom right-hand-side of the Autossh->Settings->Tunnels tab.
 
-Each option in the add SSH-tunnel form provides in-line help that describes the 
+Each option in the add SSH-tunnel setup-form provides in-line help that describes the 
 field (press the __i__ icon).
 
-Additionally, the in-line help references the underlying name of the `ssh_config` 
-item when more technical-detail is required.  Refer to the item-section in the 
-OpenSSH manual - https://man.openbsd.org/ssh_config
+Additionally, the in-line help also references the underlying `ssh_config` item that
+can be referenced for more technical-detail when required.  Refer to the OpenSSH 
+manual for the related item - https://man.openbsd.org/ssh_config
 
-Most connections are possible with a minimum setting of:
+Most SSH-tunnel connections can be created with a minimum setup of:
 
  * `User`: username at the remote SSH-server where the SSH-public key has been added to `.ssh/authorized_keys`
  * `Hostname`: the hostname (or IP address) of the remote SSH-server
  * `SSH key name`: the name of the SSH-key previously created.
  * Any of `Local Forward`, `Remote Forward` or `Dynamic Forward` for the tunnels themselves
 
-Pay attention to the `Bind Interface` since this is the interface used by autossh to 
-establish the SSH connection.  If the primary-address on the `Bind Interface` does not 
-have a route to the `Hostname` the connection will not be possible.
+Also pay attention to the `Bind Interface` since this is the interface used by 
+autossh to create the SSH connection.  If the primary-address on 
+the `Bind Interface` does not have a route to the `Hostname` the connection 
+will not be possible.
 
 Create the tunnel by pressing the "Save" button.
 
 !!! attention
-    New tunnels do not automatically start until the user navigates to Connection Status 
-    and manually starts the connection.  Once a tunnel has been started it will always 
-    work to auto-reconnect while the tunnel definition is set as Enabled.
+    New tunnels do not automatically start until the user navigates to __Connection Status__ 
+    and manually starts the connection.  However, once a tunnel has been started it will always 
+    work to auto-reconnect while the tunnel `Enabled` setting is set as true.
 
 See the [Examples](#examples) section for examples in setting up common situations and scenarios.
 
@@ -144,11 +147,16 @@ The Status column provides:
    connections report "pending" status until the first health-check (60 second interval).
 
 The Healthy signal is derived from a feature of autossh that tests if a TCP connection
-through sent through a port-forward and port-remote loopback on this ssh-connection is
-possible.  The health-check occurs every 60 seconds.
+is possible when passed through a loopback arrangement that consists of a port-forward 
+to the remote-server with a port-remote that returns the same TCP connection back to the
+autossh process - hence the loopback.
 
-Unhealthy ssh-connections are terminated and automatically recreated which increments 
-the "Fails" count.  
+The health-check occurs every 60 seconds and unhealthy connections are terminated and 
+automatically recreated - this increments the "Fails" count.  
+
+Because connection health checks occur every 60 seconds, you may observe connections
+in a "pending" state until the first health-check completes.  The ssh-tunnel may already 
+be up and operational before the healthy signal.
 
 ## Examples
 
