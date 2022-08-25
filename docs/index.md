@@ -38,10 +38,10 @@ Find more here: [/opnsense](https://documentation.threatpatrols.com/opnsense/)
 ## Security.txt
 We believe quick easy security contact is an important part of cyber-security operations.  We
 like the [`security.txt`](https://securitytxt.org/) RFC9116 proposal and maintain 
-a `.well-known` HTTP record.
+a `.well-known/security.txt` HTTP record.
 
  - HTTP: [https://www.threatpatrols.com/.well-known/security.txt](https://www.threatpatrols.com/.well-known/security.txt)
 
-Additionally, maintain a `_security` DNS TXT record that points to the same HTTP record.
+Additionally, we maintain a `_security` DNS TXT record that references the same HTTP record.
 
  - DNS TXT: `_security.threatpatrols.com`
