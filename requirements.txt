@@ -1,5 +1,5 @@
 
-mkdocs==1.3.1               # https://pypi.org/project/mkdocs/#history
-mkdocs-material==8.4.4      # https://pypi.org/project/mkdocs-material/#history
+mkdocs==1.3.0               # https://pypi.org/project/mkdocs/#history
+mkdocs-material==8.4.1      # https://pypi.org/project/mkdocs-material/#history
 mkdocs-redirects            # https://pypi.org/project/mkdocs-redirects/#history
 mkdocs-minify-plugin        # https://pypi.org/project/mkdocs-minify-plugin/#history
