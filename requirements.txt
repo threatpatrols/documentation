@@ -1,4 +1,4 @@
 
-mkdocs-material==8.4.4     # https://github.com/squidfunk/mkdocs-material
+mkdocs-material==8.4.1      # https://github.com/squidfunk/mkdocs-material
 mkdocs-redirects            # https://github.com/mkdocs/mkdocs-redirects
 mkdocs-minify-plugin        # https://github.com/byrnereese/mkdocs-minify-plugin
