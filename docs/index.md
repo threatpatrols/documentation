@@ -5,34 +5,23 @@ title: Documentation
 # Documentation - ThreatPatrols.com
 
 ## Threat Management
-Our Threat Management components (threat-perimeter, threat-discovery, threat-canary) enable our 
-persistent cyber-security threat management products and services.
+The Threat Patrols API provides the core Threat Patrols platform functionality.  Customers can work with the 
+API directly, or have the Threat Patrols team operate the platform for you as a managed cyber threat landscape 
+service. 
 
-We are currently at that in-between time, where we want to tell people about what we have; 
-working on the development; and having everything ship-shape in a way that works for customers.
+#### Looking for the API documentation?
 
-Our Threat Management products are with some hand-picked early-access development customers, 
-and we genuinely appreciate their regular interaction and regular feedback.  If you believe you 
-have the time resources available to participate in our early product release cycles then 
-we'd love to hear from you too - https://www.threatpatrols.com/contact/development-preview
+Our API documentation is not (yet) public.  We are working hard on getting this sorted out and expect we'll 
+make it happen at the same time we publish the `tpcli` command line interface tool since these are closely 
+related.
 
-If you'd just like to be first-in-queue as our Threat Management products become more broadly 
-available then consider getting yourself signed up for an occasional email from 
-us - https://www.threatpatrols.com/contact/stay-in-touch
+Users with authenticated access to the API are able to access the automatically generated Swagger-UI documentation
+directly from https://api.threatpatrols.com
 
-## OPNsense Resources
-Threat Patrols really loves OPNsense, and we are proud to support the ecosystem with
-resources for the OPNsense community.  We currently provide:
-
- - a public Cloudflare CDN backed mirror; 
- - a package distribution repo; 
- - some awesome OPNsense plugins, Autossh; ConfigSync and MultiCLOUDsense
-
-Find more here: [/opnsense](https://documentation.threatpatrols.com/opnsense/)
 
 ## System Status
- - Services: [https://status.threatpatrols.com](https://status.threatpatrols.com){target=_blank}
- - Packages: [https://status.threatpatrols.com/status/package-status](https://status.threatpatrols.com/status/package-status){target=_blank}
+ - Threat Patrols Services: [https://status.threatpatrols.com](https://status.threatpatrols.com){target=_blank}
+ - Threat Patrols Packages: [https://status.threatpatrols.com/status/package-status](https://status.threatpatrols.com/status/package-status){target=_blank}
 
 
 ## Security.txt
@@ -45,3 +34,14 @@ a `.well-known/security.txt` HTTP record.
 Additionally, we maintain a `_security` DNS TXT record that references the same HTTP record.
 
  - DNS TXT: `_security.threatpatrols.com`
+
+
+## OPNsense Resources
+Threat Patrols really loves OPNsense, and we are proud to support the ecosystem with
+resources for the OPNsense community.  We currently provide:
+
+ - a public Cloudflare CDN backed mirror; 
+ - a package distribution repo; 
+ - some awesome OPNsense plugins, Autossh; ConfigSync and MultiCLOUDsense
+
+Find more here: [/opnsense](https://documentation.threatpatrols.com/opnsense/)

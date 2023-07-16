@@ -3,7 +3,7 @@
 site_name: ThreatPatrols.com
 site_url: https://documentation.threatpatrols.com/
 site_author: Threat Patrols Pty. Ltd.
-site_description: Persistent cyber-security threat management
+site_description: Persistent cybersecurity threat management
 
 # Repository
 repo_name: threatpatrols/documentation
@@ -68,16 +68,16 @@ theme:
     text: Roboto
     code: Roboto Mono
 
-  logo: assets/threatpatrols-logo-black-border_32x32.png
-  favicon: assets/threatpatrols-logo-black-border_32x32.png
+  logo: assets/tp-logo-black-outline_32x32.png
+  favicon: assets/tp-logo-black-outline_32x32.png
 
 # plugins
 plugins:
   - search
   - redirects:
       redirect_maps:
-        opnsense/plugins: opnsense/index.md
-        opnsense/multicloudsense: multicloudsense/index.md
+        opnsense/plugins/index.md: opnsense/index.md
+        opnsense/multicloudsense/index.md: opnsense/index.md
   - minify:
       minify_js: true
       minify_css: true

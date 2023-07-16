@@ -10,4 +10,5 @@ fi
 
 while true; do
   mkdocs serve
+  sleep 1
 done
