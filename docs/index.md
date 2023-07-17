@@ -9,7 +9,7 @@ The Threat Patrols API provides the core Threat Patrols platform functionality. 
 API directly, or have the Threat Patrols team operate the platform for you as a managed cyber threat landscape 
 service. 
 
-#### Looking for the API documentation?
+#### Looking for API docs?
 
 Our API documentation is not (yet) public.  We are working hard on getting this sorted out and expect we'll 
 make it happen at the same time we publish the `tpcli` command line interface tool since these are closely 
@@ -34,14 +34,3 @@ a `.well-known/security.txt` HTTP record.
 Additionally, we maintain a `_security` DNS TXT record that references the same HTTP record.
 
  - DNS TXT: `_security.threatpatrols.com`
-
-
-## OPNsense Resources
-Threat Patrols really loves OPNsense, and we are proud to support the ecosystem with
-resources for the OPNsense community.  We currently provide:
-
- - a public Cloudflare CDN backed mirror; 
- - a package distribution repo; 
- - some awesome OPNsense plugins, Autossh; ConfigSync and MultiCLOUDsense
-
-Find more here: [/opnsense](https://documentation.threatpatrols.com/opnsense/)
