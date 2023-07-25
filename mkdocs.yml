@@ -16,10 +16,10 @@ nav:
   - Documentation: index.md
   - OPNsense Resources:
     - opnsense/index.md
-    - Autossh Plugin: opnsense/plugins/autossh/index.md
-    - ConfigSync Plugin: opnsense/plugins/configsync/index.md
     - OPNsense Repo: opnsense/repo/index.md
     - OPNsense Mirror: opnsense/mirror/index.md
+    - Autossh Plugin: opnsense/plugins/autossh/index.md
+    - ConfigSync Plugin: opnsense/plugins/configsync/index.md
   - ThreatPatrols.com: https://www.threatpatrols.com
 
 # theme configuration

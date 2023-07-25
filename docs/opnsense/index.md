@@ -13,6 +13,11 @@ Threat Patrols [repo](/opnsense/repo) to your OPNsense instance.
  - Autossh: [/opnsense/plugins/autossh](/opnsense/plugins/autossh)
  - Configuration Sync: [/opnsense/plugins/configsync](/opnsense/plugins/configsync/)
 
+#### Plugin install TLDR;
+ - Step 1: [install the threatpatrols package](/opnsense/repo) using a `pkg-static add ...` command on your OPNsense
+   host to enable plugins from the ThreatPatrols repo.
+ - Step 2: navigate to System > Firmware > Plugins on your OPNsense system and install ThreatPatrols plugins as desired.
+
 ## Threat Patrols Package Repository
 Threat Patrols operates a package repository with OPNsense packages signed by us that 
 allows you to easily install our packages and plugins.

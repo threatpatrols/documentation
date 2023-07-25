@@ -14,18 +14,18 @@ simply remove the plugin using the regular OPNsense web-interface.
 
 Use the following command (as root) to install the `os-threatpatrols` plugin
 
-#### OPNsense 23.1
-```commandline
+#### OPNsense 23.7
+```shell
 pkg-static add \
-  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/23.1/stable/Latest/os-threatpatrols.pkg"
+  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/23.7/stable/Latest/os-threatpatrols.pkg"
 ```
 
 ??? example "Sample command output (click to expand)"
 
     You should see output similar to this
 
-    ```commandline
-    root@OPNsense:~ # pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/23.1/stable/Latest/os-threatpatrols.pkg"
+    ```shell
+    root@OPNsense:~ # pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/23.7/stable/Latest/os-threatpatrols.pkg"
     Fetching os-threatpatrols.pkg: 100%    5 KiB   4.9kB/s    00:01
     Installing os-threatpatrols-1.0.33...
     Extracting os-threatpatrols-1.0.33: 100%
@@ -48,31 +48,16 @@ pkg-static add \
     root@OPNsense:~ #
     ```
 
-Earlier OPNsense versions are possible by adjusting the source URL to suit
-
-#### OPNsense 22.7
-```
+#### OPNsense 23.1 to 21.1
+Earlier OPNsense versions are possible by adjusting the source URL to suit, for example OPNsense23.1
+```shell
 pkg-static add \
-  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.7/stable/Latest/os-threatpatrols.pkg"
-```
-
-#### OPNsense 22.1
-```
-pkg-static add \
-  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/22.1/stable/Latest/os-threatpatrols.pkg"
+  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/23.1/stable/Latest/os-threatpatrols.pkg"
 ```
 
-#### OPNsense 21.7
-```
-pkg-static add \
-  "https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.7/stable/Latest/os-threatpatrols.pkg"
-```
+Note that OPNsense 21.1 and 21.7 are based on FreeBSD:12 so if you still require these older (and now unsupported)
+versions that you'll need to adjust the `FreeBSD:13:amd64` portion of the URL to suit as well.
 
-#### OPNsense 21.1
-```
-pkg-static add \
-  "https://repo.threatpatrols.com/opnsense/FreeBSD:12:amd64/21.1/stable/Latest/os-threatpatrols.pkg"
-```
 
 ## Desktop Widget
 
@@ -94,7 +79,7 @@ It is possible to switch ThreatPatrols release streams from the terminal with
 the following commands.
 
 #### Stable
-```
+```shell
 configctl threatpatrols repo use_stable
 ```
 
@@ -103,7 +88,7 @@ configctl threatpatrols repo use_stable
     Only if there is a change in the ThreatPatrols repo being used will an update
     occur, as shown below -
 
-    ```commandline
+    ```shell
     root@OPNsense:~ # configctl threatpatrols repo use_stable
     Updating OPNsense repository catalogue...
     Fetching meta.conf: . done
@@ -122,7 +107,7 @@ configctl threatpatrols repo use_stable
 #### Testing
 Only use the testing release stream if you are comfortable in dealing with occasional
 issues and are willing to report those issues via the related Github issues channel.
-```
+```shell
 configctl threatpatrols repo use_testing
 ```
 
@@ -139,7 +124,7 @@ by uninstalling the `os-threatpatrols` via the regular OPNsense web-interface
 via System->Firmware->Plugins menu.
 
 Alternatively, you can remove using from a (root) terminal prompt
-```commandline
+```shell
 pkg remove os-threatpatrols
 ```
 
@@ -147,7 +132,7 @@ pkg remove os-threatpatrols
 
     You should see output similar to this
 
-    ```commandline
+    ```shell
     root@OPNsense:~ # pkg remove os-threatpatrols
     Checking integrity... done (0 conflicting)
     Deinstallation has been requested for the following 1 packages (of 0 packages in the universe):
@@ -172,8 +157,8 @@ pkg remove os-threatpatrols
 
 ## Repo Status Monitoring
 Additional to being transparent about our [system-uptime](https://status.threatpatrols.com/){target=_blank} 
-we also closely monitor the packaging status across each of our release streams (Stable, Testing, 
-Develop) for each supported OPNsense release. 
+we also closely monitor the packaging status across each of our release (Stable, Testing) for each supported 
+OPNsense release. 
 
  * Packages Status: [https://status.threatpatrols.com/status/package-status](https://status.threatpatrols.com/status/package-status){target=_blank}
 
@@ -210,13 +195,13 @@ these.
 Steps to confirm our `.fingerprint` files:
 
 Step 1) Acquire the Threat Patrols GPG public key - https://www.threatpatrols.com/.well-known/threatpatrols.pgp
-```commandline
+```shell
 curl --silent 'https://www.threatpatrols.com/.well-known/threatpatrols.pgp' | gpg --import
 ```
 You may additionally observe our GPG key as being available via [public-keyservers](https://keyserver.ubuntu.com/pks/lookup?search=0x2C78E60FD912408F&fingerprint=on&op=index)
 
 Step 2) Confirm GPG key-id `0x2C78E60FD912408F` for `security@threatpatrols.com`
-```commandline
+```shell
 gpg --list-key 2C78E60FD912408F
 ```
 
@@ -229,7 +214,7 @@ sub   rsa4096 2022-05-15 [E]
 ```
 
 Step 3) Confirm the fingerprint file(s)
-```commandline
+```shell
 wget 'https://repo.threatpatrols.com/keys/trusted/repo.threatpatrols.com-opnsense_20220105b.fingerprint'
 wget 'https://repo.threatpatrols.com/keys/trusted/repo.threatpatrols.com-opnsense_20220105b.fingerprint.sig'
 gpg --verify repo.threatpatrols.com-opnsense_20220105b.fingerprint.sig
