@@ -14,10 +14,10 @@ simply remove the plugin using the regular OPNsense web-interface.
 
 Use the following command (as root) to install the `os-threatpatrols` plugin
 
-#### OPNsense 23.7
+#### OPNsense 24.1
 ```shell
 pkg-static add \
-  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/23.7/stable/Latest/os-threatpatrols.pkg"
+  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/24.1/stable/Latest/os-threatpatrols.pkg"
 ```
 
 ??? example "Sample command output (click to expand)"
@@ -25,18 +25,18 @@ pkg-static add \
     You should see output similar to this
 
     ```shell
-    root@OPNsense:~ # pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/23.7/stable/Latest/os-threatpatrols.pkg"
+    root@OPNsense:~ # pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/24.1/stable/Latest/os-threatpatrols.pkg"
     Fetching os-threatpatrols.pkg: 100%    5 KiB   4.9kB/s    00:01
     Installing os-threatpatrols-1.0.33...
     Extracting os-threatpatrols-1.0.33: 100%
     Updating OPNsense repository catalogue...
     Fetching meta.conf: 100%    163 B   0.2kB/s    00:01
-    Fetching packagesite.pkg: 100%  227 KiB 232.2kB/s    00:01
+    Fetching packagesite.pkg: 100%  240 KiB 245.6kB/s    00:01
     Processing entries: 100%
-    OPNsense repository update completed. 822 packages processed.
+    OPNsense repository update completed. 845 packages processed.
     Updating ThreatPatrols repository catalogue...
     Fetching meta.conf: 100%    104 B   0.1kB/s    00:01
-    Fetching packagesite.pkg: 100%    3 KiB   3.0kB/s    00:01
+    Fetching packagesite.pkg: 100%    3 KiB   3.1kB/s    00:01
     Processing entries: 100%
     ThreatPatrols repository update completed. 3 packages processed.
     All repositories are up to date.
@@ -48,7 +48,7 @@ pkg-static add \
     root@OPNsense:~ #
     ```
 
-#### OPNsense 23.1 to 21.1
+#### OPNsense 23.7 to 21.1
 Earlier OPNsense versions are possible by adjusting the source URL to suit, for example OPNsense23.1
 ```shell
 pkg-static add \
@@ -244,7 +244,7 @@ Please post issues via Github:
  * https://github.com/threatpatrols/opnsense-plugin-threatpatrols
 
 ## Copyright
-* Copyright &copy; 2022-2023 Threat Patrols Pty Ltd &lt;contact@threatpatrols.com&gt;
+* Copyright &copy; 2022-2024 Threat Patrols Pty Ltd &lt;contact@threatpatrols.com&gt;
 
 All rights reserved.
 

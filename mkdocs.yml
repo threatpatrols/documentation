@@ -10,7 +10,7 @@ repo_name: threatpatrols/documentation
 repo_url: https://github.com/threatpatrols/documentation
 
 # copyright
-copyright: Copyright &copy; 2021 - 2023 Threat Patrols Pty. Ltd.
+copyright: Copyright &copy; 2021 - 2024 Threat Patrols Pty. Ltd.
 
 nav:
   - Documentation: index.md
@@ -68,8 +68,8 @@ theme:
     text: Roboto
     code: Roboto Mono
 
-  logo: assets/tp-logo-white-outline_32x32.png
-  favicon: assets/tp-logo-black-outline_32x32.png
+  logo: assets/threatpatrols-eyeprint-white-64x64.png
+  favicon: assets/threatpatrols-eyeprint-black-64x64.png
 
 # plugins
 plugins:
