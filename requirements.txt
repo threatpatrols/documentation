@@ -3,3 +3,4 @@ mkdocs==1.4.3               # https://pypi.org/project/mkdocs/#history
 mkdocs-material==9.1.18     # https://pypi.org/project/mkdocs-material/#history
 mkdocs-redirects==1.2.0     # https://pypi.org/project/mkdocs-redirects/#history
 mkdocs-minify-plugin==0.6.4 # https://pypi.org/project/mkdocs-minify-plugin/#history
+urllib3>=2.2.2 # not directly required, pinned by Snyk to avoid a vulnerability
