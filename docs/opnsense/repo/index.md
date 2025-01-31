@@ -14,7 +14,7 @@ simply remove the plugin using the regular OPNsense web-interface.
 
 Use the following command (as root) to install the `os-threatpatrols` plugin
 
-#### OPNsense 24.1
+#### OPNsense 25.1
 ```shell
 pkg-static add \
   "https://repo.threatpatrols.com/opnsense/FreeBSD:14:amd64/25.1/stable/Latest/os-threatpatrols.pkg"
