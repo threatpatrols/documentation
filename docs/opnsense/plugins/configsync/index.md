@@ -151,7 +151,7 @@ Please post issues via Github:
  * https://github.com/threatpatrols/opnsense-plugin-configsync
 
 ## Copyright
-* Copyright &copy; 2022-2024 Threat Patrols Pty Ltd &lt;contact@threatpatrols.com&gt;
+* Copyright &copy; 2022-2025 Threat Patrols Pty Ltd &lt;contact@threatpatrols.com&gt;
 * Copyright &copy; 2018 Verb Networks Pty Ltd &lt;contact@verbnetworks.com&gt;
 * Copyright &copy; 2018 Nicholas de Jong &lt;me@nicholasdejong.com&gt;
 

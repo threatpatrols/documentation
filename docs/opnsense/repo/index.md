@@ -17,7 +17,7 @@ Use the following command (as root) to install the `os-threatpatrols` plugin
 #### OPNsense 24.1
 ```shell
 pkg-static add \
-  "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/24.1/stable/Latest/os-threatpatrols.pkg"
+  "https://repo.threatpatrols.com/opnsense/FreeBSD:14:amd64/25.1/stable/Latest/os-threatpatrols.pkg"
 ```
 
 ??? example "Sample command output (click to expand)"
@@ -25,15 +25,16 @@ pkg-static add \
     You should see output similar to this
 
     ```shell
-    root@OPNsense:~ # pkg-static add "https://repo.threatpatrols.com/opnsense/FreeBSD:13:amd64/24.1/stable/Latest/os-threatpatrols.pkg"
+    root@OPNsense:~ #
+    root@OPNsense:~ # pkg-static add "https://repo.threatpatrols.com/opnsense/FreeB
     Fetching os-threatpatrols.pkg: 100%    5 KiB   4.9kB/s    00:01
     Installing os-threatpatrols-1.0.33...
     Extracting os-threatpatrols-1.0.33: 100%
     Updating OPNsense repository catalogue...
     Fetching meta.conf: 100%    163 B   0.2kB/s    00:01
-    Fetching packagesite.pkg: 100%  240 KiB 245.6kB/s    00:01
+    Fetching packagesite.pkg: 100%  248 KiB 253.6kB/s    00:01
     Processing entries: 100%
-    OPNsense repository update completed. 845 packages processed.
+    OPNsense repository update completed. 868 packages processed.
     Updating ThreatPatrols repository catalogue...
     Fetching meta.conf: 100%    104 B   0.1kB/s    00:01
     Fetching packagesite.pkg: 100%    3 KiB   3.1kB/s    00:01
@@ -48,7 +49,7 @@ pkg-static add \
     root@OPNsense:~ #
     ```
 
-#### OPNsense 23.7 to 21.1
+#### OPNsense 24.7 to 21.1
 Earlier OPNsense versions are possible by adjusting the source URL to suit, for example OPNsense23.1
 ```shell
 pkg-static add \
@@ -59,20 +60,29 @@ Note that OPNsense 21.1 and 21.7 are based on FreeBSD:12 so if you still require
 versions that you'll need to adjust the `FreeBSD:13:amd64` portion of the URL to suit as well.
 
 
-## Desktop Widget
+[//]: # (## Desktop Widget)
 
-![Mirror](assets/threatpatrols-repository-info.png){ align=right }
+[//]: # ()
+[//]: # (![Mirror]&#40;assets/threatpatrols-repository-info.png&#41;{ align=right })
 
-Installation of `os-threatpatrols` also creates an optional desktop-widget view 
-that shows at-a-glance the Threat Patrols packages currently installed on the 
-OPNsense system.
+[//]: # ()
+[//]: # (Installation of `os-threatpatrols` also creates an optional desktop-widget view )
 
-Add this widget using the "+ Add Widget" button located at the top of the main 
-OPNsense Dashboard view, then select "Threat Patrols Repository Info"
+[//]: # (that shows at-a-glance the Threat Patrols packages currently installed on the )
 
-The screenshot provided shows `os-threatpatrols` installed on an OPNsense 21.1 
-instance with the ThreatPatrols repo configured for use, and packages installed 
-from the ThreatPatrolsTesting repo.
+[//]: # (OPNsense system.)
+
+[//]: # ()
+[//]: # (Add this widget using the "+ Add Widget" button located at the top of the main )
+
+[//]: # (OPNsense Dashboard view, then select "Threat Patrols Repository Info")
+
+[//]: # ()
+[//]: # (The screenshot provided shows `os-threatpatrols` installed on an OPNsense 21.1 )
+
+[//]: # (instance with the ThreatPatrols repo configured for use, and packages installed )
+
+[//]: # (from the ThreatPatrolsTesting repo.)
 
 ## Release Streams
 It is possible to switch ThreatPatrols release streams from the terminal with 
@@ -244,7 +254,7 @@ Please post issues via Github:
  * https://github.com/threatpatrols/opnsense-plugin-threatpatrols
 
 ## Copyright
-* Copyright &copy; 2022-2024 Threat Patrols Pty Ltd &lt;contact@threatpatrols.com&gt;
+* Copyright &copy; 2022-2025 Threat Patrols Pty Ltd &lt;contact@threatpatrols.com&gt;
 
 All rights reserved.
 
